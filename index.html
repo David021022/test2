@@ -1,0 +1,158 @@
+﻿<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>番茄专注计时器 - 静态 Demo</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+  <div class="bg-noise"></div>
+  <main class="shell">
+    <header class="topbar">
+      <div class="brand">
+        <span class="time">12:28 PM</span>
+        <span class="dot"></span>
+        <span class="name">Focus.Record</span>
+      </div>
+      <nav class="nav-pills">
+        <button class="pill active" type="button" data-page-btn="dashboard">dashboard</button>
+        <button class="pill" type="button" data-page-btn="settings">settings</button>
+        <button class="pill" type="button" data-page-btn="data">data</button>
+      </nav>
+    </header>
+
+    <section class="page active" data-page="dashboard">
+      <section class="panel">
+        <div class="dashboard">
+          <div class="hero card">
+            <div class="hero-head">
+              <div>
+                <h1>Pomodoro Focus.</h1>
+                <p>用更稳定的节奏，完成今天最重要的事。</p>
+              </div>
+              <span class="chip">focus session A</span>
+            </div>
+            <div class="hero-timer">
+              <div class="timer-main">
+                <span class="mode" data-role="timer-mode">专注中</span>
+                <strong data-role="timer-remaining">12:00</strong>
+                <div class="actions">
+                  <button class="btn btn-dark" type="button" data-role="timer-toggle">暂停</button>
+                  <button class="btn" type="button" data-role="timer-reset">重置</button>
+                </div>
+              </div>
+              <div class="timer-side">
+                <p class="label">当前轮次</p>
+                <p class="value" data-role="timer-round">第 3/8 个番茄</p>
+                <p class="label">下一阶段</p>
+                <p class="value" data-role="timer-next">5 分钟休息</p>
+                <div class="quick-nav">
+                  <button class="btn" type="button" data-page-btn="settings">去设置</button>
+                  <button class="btn" type="button" data-page-btn="data">看数据</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="today card">
+            <div class="card-title">今日专注</div>
+            <div class="ring-wrap">
+              <div class="ring">
+                <span data-role="stats-today-percent">0%</span>
+              </div>
+            </div>
+            <ul class="stats">
+              <li><span>总时长</span><strong data-role="stats-today-duration">0h 0m</strong></li>
+              <li><span>已完成</span><strong data-role="stats-today-count">0 个番茄</strong></li>
+              <li><span>日目标</span><strong data-role="stats-today-target">4h</strong></li>
+            </ul>
+          </div>
+
+          <div class="timeslot card">
+            <div class="card-title">时段统计</div>
+            <div class="bars" aria-label="时段柱状图静态展示">
+              <span data-role="slot-bar" data-slot-hour="8" style="--h:0%"></span>
+              <span data-role="slot-bar" data-slot-hour="10" style="--h:0%"></span>
+              <span data-role="slot-bar" data-slot-hour="12" style="--h:0%"></span>
+              <span data-role="slot-bar" data-slot-hour="14" style="--h:0%"></span>
+              <span data-role="slot-bar" data-slot-hour="16" style="--h:0%"></span>
+              <span data-role="slot-bar" data-slot-hour="18" style="--h:0%"></span>
+            </div>
+            <p class="hint" data-role="stats-slot-peak">高峰时段：--</p>
+          </div>
+
+          <div class="weekly card">
+            <div class="card-title">本周专注</div>
+            <div class="week-grid">
+              <div><span>Mon</span><strong data-role="week-day" data-weekday="1">0.0h</strong></div>
+              <div><span>Tue</span><strong data-role="week-day" data-weekday="2">0.0h</strong></div>
+              <div><span>Wed</span><strong data-role="week-day" data-weekday="3">0.0h</strong></div>
+              <div><span>Thu</span><strong data-role="week-day" data-weekday="4">0.0h</strong></div>
+              <div><span>Fri</span><strong data-role="week-day" data-weekday="5">0.0h</strong></div>
+              <div><span>Sat</span><strong data-role="week-day" data-weekday="6">0.0h</strong></div>
+              <div><span>Sun</span><strong data-role="week-day" data-weekday="0">0.0h</strong></div>
+            </div>
+            <p class="hint" data-role="stats-week-total">周累计：0.0h</p>
+          </div>
+        </div>
+      </section>
+    </section>
+
+    <section class="page" data-page="settings">
+      <article class="mini-page card page-single">
+        <div class="mini-head">
+          <h2>设置页面</h2>
+          <span class="chip">P0</span>
+        </div>
+        <div class="form-row">
+          <label>专注时长</label>
+          <input class="fake-input" data-role="settings-focus-minutes" type="number" min="1" step="1" value="25">
+        </div>
+        <div class="form-row">
+          <label>休息时长</label>
+          <input class="fake-input" data-role="settings-break-minutes" type="number" min="1" step="1" value="5">
+        </div>
+        <div class="form-row">
+          <label>提示音</label>
+          <label class="toggle on"><input data-role="settings-sound-enabled" type="checkbox" checked><span></span></label>
+        </div>
+        <div class="page-actions">
+          <button class="btn btn-dark full" type="button" data-role="settings-save">保存设置</button>
+          <button class="btn full" type="button" data-page-btn="dashboard">返回 dashboard</button>
+        </div>
+      </article>
+    </section>
+
+    <section class="page" data-page="data">
+      <article class="mini-page card page-single">
+        <div class="mini-head">
+          <h2>数据管理页面</h2>
+          <span class="chip">P1</span>
+        </div>
+        <p class="muted">数据存储位置：浏览器本地缓存</p>
+        <div class="data-actions">
+          <button class="btn" type="button" data-role="data-export">导出数据</button>
+          <button class="btn" type="button" data-role="data-import">导入数据</button>
+        </div>
+        <div class="status">
+          <span class="status-dot"></span>
+          <p data-role="data-status">最近一次导入：成功（2026-05-30 12:10）</p>
+        </div>
+        <div class="page-actions">
+          <button class="btn full" type="button" data-page-btn="dashboard">返回 dashboard</button>
+        </div>
+      </article>
+    </section>
+  </main>
+
+  <script type="module" src="/src/main.js"></script>
+</body>
+</html>
+
+
+
+
